@@ -1,1 +1,34 @@
-GET http://localhost:3000/places?text=av governador valadares, betim, 1000
+GET http://localhost:3000/places?text=rua antonio paiva junior, presidente bernardes, 314
+
+###
+
+GET http://localhost:3000/places?text=av manoel goulart, presidente prudente, 1000 
+
+###
+
+@originId = ChIJdeeRL_3kk5QRftxWU4uTpOw
+
+@destinationId = ChIJl_jH70v0k5QR0YK2KZFwVoo
+
+###
+
+GET http://localhost:3000/directions?originId={{ originId }}&destinationId={{ destinationId }}
+
+###
+
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+    "name": "rota 1",
+    "source_id": "{{ originId }}",
+    "destination_id": "{{ destinationId }}"
+}
+
+###
+
+GET http://localhost:3000/routes
+
+###
+
+GET http://localhost:3000/routes/675c9871de325339f520be5e
